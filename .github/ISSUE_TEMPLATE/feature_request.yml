@@ -1,0 +1,27 @@
+name: 💡 Feature request
+description: Suggest an idea or improvement.
+labels: ["feature"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like?
+      description: Describe the feature and what you're trying to do.
+    validations:
+      required: true
+
+  - type: textarea
+    id: mockups
+    attributes:
+      label: Mockups or examples
+      description: Drag in mockups, sketches, or screenshots from other clients. (Optional)
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Anything else?
+      description: Alternatives you've considered, examples from other clients, etc.
+    validations:
+      required: false
