@@ -10,14 +10,14 @@
 
 <p align="center">
   <a href="https://testflight.apple.com/join/VmrhH4bc"><img src="https://img.shields.io/badge/TestFlight-Join%20the%20beta-0D96F6?logo=apple&logoColor=white" alt="Join the TestFlight beta"></a>
-  <img src="https://img.shields.io/badge/beta-1.0%20(4)-blueviolet" alt="Latest TestFlight beta 1.0 build 4">
+  <img src="https://img.shields.io/badge/beta-2-blueviolet" alt="Latest TestFlight beta beta 2.0 build 11">
   <img src="https://img.shields.io/badge/platform-iOS%20%7C%20iPadOS%20%7C%20macOS%2026%2B-lightgrey" alt="Platforms">
-  <img src="https://img.shields.io/badge/languages-24-orange" alt="24 languages">
+  <img src="https://img.shields.io/badge/languages-22-orange" alt="22 languages">
 </p>
 
 ---
 
-**CuIRC** is a native IRC client for iPhone, iPad, and Mac. The name is a play on how guinea pigs chat (*cui cui cui* 🐹) and, of course, IRC. It's written from scratch in UIKit with Liquid Glass styling and a SwiftNIO networking core, plus the platform touches you'd want on modern iOS: Dynamic Island, Live Activities, rich text, Dynamic Type, and localization in 24 languages.
+**CuIRC** is a native IRC client for iPhone, iPad, and Mac. The name is a play on how guinea pigs chat (*cui cui cui* 🐹) and, of course, IRC. It's written from scratch in UIKit with Liquid Glass styling and a SwiftNIO networking core, plus the platform touches you'd want on modern Apple devices: a sidebar workspace on iPad and Mac, Dynamic Island, Live Activities, rich text, Dynamic Type, and localization in 22 languages.
 
 This repo is where CuIRC lives in public. Report bugs, request features, and see what's coming next. The app is a public TestFlight beta, so anyone can join.
 
@@ -33,32 +33,45 @@ CuIRC is in open **TestFlight** beta:
 
 **Requires** iOS 26+, iPadOS 26+, or macOS 26+.
 
-> Beta builds change fast. If something breaks, please tell us — see [Reporting issues](#-reporting-issues--feedback) below.
+> Beta builds change fast. If something breaks, please tell us, see [Reporting issues](#-reporting-issues--feedback) below.
+
+## 🆕 What's new in Beta 2
+
+Beta 2 is the workspace release: a sidebar workspace on iPad and Mac, a one-handed Home on iPhone, a rebuilt in-chat search, per-selection formatting, send options that respect the server's limits, and a long list of IRCv3 capabilities. The full list is in the [changelog](CHANGELOG.md).
 
 ## ✨ Highlights
 
-**Modern & native**
-- Fully native UIKit interface with Liquid Glass styling.
-- Full Dynamic Type support.
-- Localized in 24 languages.
+**One app, every screen**
+- Sidebar workspace on iPad and Mac: All Chats, Unread and Mentions destinations, servers grouped underneath, and a chat details inspector beside the conversation.
+- Conversations in their own windows, movable between windows, restored after a restart.
+- Menu bar commands with keyboard shortcuts on iPad and Mac.
+- Home as a list or as cards on iPhone, with unread and mention filters.
+- Fully native UIKit interface with Liquid Glass styling, full Dynamic Type, and 22 languages.
 
 **Rich, real-time chat**
-- Rich text formatting — bold, italic, underline, strikethrough, mono, and colors.
+- Rich text formatting: bold, italic, underline, strikethrough, mono, text and background colors, extended palette and reverse video. Style only the text you select and mix styles in one message.
+- Format panel, edit menu and hardware keyboard shortcuts.
+- Copy a message as text, rich text or as itself. Drag formatted text in and out of the composer.
+- Send options: split or multiline for long messages, with a live preview. CuIRC trims or asks before anything exceeds the server's limits.
 - Inline URL previews, image previews with a gallery, and link/chat peek.
+- In-chat search with highlighted matches and transcript dimming, steady while messages arrive.
 - Mention highlighting, swipe-to-reply, and smart scrolling that remembers where you left off.
 - Per-target unread tracking, timestamps, and a floating date indicator.
+- Chat wallpapers with a preview on every device.
 
 **Power features**
-- **Location-based profiles** — automatically connect or disconnect from servers based on where you are and what time it is.
+- **Location-based profiles**: automatically connect or disconnect from servers based on where you are and what time it is.
 - **Location sharing** with Live Activity + Dynamic Island, one-time or recurring.
 - **Image upload & editor** (Catbox, ImgBB) with crop, rotate, watermark, adjust, censor, and draw tools.
+- **App Lock** with Face ID or Touch ID on iPhone and iPad.
 
 **IRC support**
-- IRCv3 capability negotiation, message tags, and `multi-prefix` roles.
-- Authentication via SASL, NickServ, and ZNC.
-- WHOIS, channel modes, channel discovery, and user lists.
+- IRCv3 capability negotiation, message tags, batches and chat history (see the [matrix below](#-ircv3-capabilities)).
+- Server rules honoured: `CASEMAPPING`, `CHANTYPES`, `STATUSMSG`, `PREFIX` and the advertised length limits.
+- Authentication via SASL, NickServ, and ZNC. Service and bouncer conversations (for example ZNC `*status`).
+- WHOIS with WHO/WHOX enrichment, channel topic, creation time and website with a topic editor, channel modes, channel discovery, and user lists.
 - Moderation tools: kick, ban (with mask helper), and role management.
-- Per-user ignore, slash commands with helpers, and multiline handling.
+- Ignore by nickname or address, slash commands with helpers, and command body splitting.
 
 **Notifications**
 - Per-scope rules (global, server, chat) for messages, mentions, and system events.
@@ -76,34 +89,52 @@ Where CuIRC stands on the IRCv3 spec today. Supported caps are negotiated automa
 | `account-notify` | ✅ |
 | `account-tag` | ✅ |
 | `away-notify` | ✅ |
+| `batch` | ✅ |
 | `cap-notify` | ✅ |
 | `chghost` | ✅ |
+| `extended-join` | ✅ |
+| `extended-monitor` | ✅ |
 | `invite-notify` | ✅ |
+| `labeled-response` | ✅ |
 | `message-tags` | ✅ |
+| `monitor` | ✅ |
 | `multi-prefix` | ✅ |
-| `sasl` | ✅ |
+| `no-implicit-names` | ✅ |
+| `sasl` (v3.1) | ✅ |
 | `server-time` | ✅ |
 | `setname` | ✅ |
+| `standard-replies` | ✅ |
 | `userhost-in-names` | ✅ |
-| `batch` | 🚧 Planned |
 | `echo-message` | 🚧 Planned |
-| `extended-join` | 🚧 Planned |
-| `extended-monitor` | 🚧 Planned |
-| `labeled-response` | 🚧 Planned |
-| `monitor` | 🚧 Planned |
-| `standard-replies` | 🚧 Planned |
+| `sasl` (v3.2) | 🚧 Planned |
+| `sts` | 🚧 Planned |
 
 ### Message tags
 
 | Tag | Supported | Requires |
 |---|:---:|---|
 | `account` | ✅ | `account-tag` |
+| `batch` | ✅ | `batch` |
+| `bot` | ✅ | `message-tags` |
+| `label` | ✅ | `labeled-response` |
+| `msgid` | ✅ | `message-tags` |
 | `time` | ✅ | `server-time` |
-| `batch` | 🚧 Planned | `batch` |
-| `bot` | 🚧 Planned | `message-tags` |
-| `msgid` | 🚧 Planned | `message-tags` |
+| `+channel-context` | 🚧 Planned | `message-tags` |
 | `+reply` | 🚧 Planned | `message-tags` |
 | `+typing` | 🚧 Planned | `message-tags` |
+
+### Batch types
+
+| Batch | Supported | Requires |
+|---|:---:|---|
+| `chathistory` | ✅ | `batch` |
+| `labeled-response` | ✅ | `labeled-response` |
+| `netjoin` | 🚧 Planned | `batch` |
+| `netsplit` | 🚧 Planned | `batch` |
+
+### Server features (`RPL_ISUPPORT`)
+
+CuIRC reads `CASEMAPPING`, `CHANTYPES`, `STATUSMSG`, `PREFIX`, `MONITOR`, and the `NICKLEN`, `CHANNELLEN`, `KEYLEN`, `TOPICLEN`, `KICKLEN`, `AWAYLEN`, `USERLEN`, `HOSTLEN`, `NAMELEN` and `LINELEN` limits, and applies them to name folding, channel joins, message targets and outgoing messages.
 
 You can inspect what a server advertised versus what got negotiated from the in-app server capabilities viewer.
 
@@ -112,10 +143,11 @@ You can inspect what a server advertised versus what got negotiated from the in-
 Planned and in-progress work lives in [Issues](../../issues) and [Milestones](../../milestones). A few things on the way:
 
 - Channel mode management UI
-- Chat export & message translation
+- Message history and templates beside the composer
 - Universal search
+- Chat export & message translation
 - More IRCv3 capabilities (see the [matrix above](#-ircv3-capabilities))
-- **Longer term:** tailor-made iPad/Mac layouts, ZNC push plugin, DCC, iCloud Sync
+- **Longer term:** ZNC push plugin, DCC, iCloud Sync
 
 ## 🐛 Reporting issues & feedback
 
@@ -134,6 +166,7 @@ Your data stays on your device.
 - **No account, no tracking.** CuIRC has no backend of its own; it talks directly to the IRC servers you configure.
 - **Location** is only used for the features you turn on (location-based profiles, location sharing), and only while they're enabled.
 - **Images** upload only when you choose to, to the third-party host you pick (Catbox or ImgBB).
+- **App Lock** keeps the app behind Face ID or Touch ID on iPhone and iPad.
 - Servers, credentials, and history are stored locally on your device.
 
 ## 🙌 Credits
