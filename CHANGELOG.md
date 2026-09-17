@@ -1,6 +1,16 @@
 # Changelog
 
-## Beta 2 (2026-09)
+## Beta 2 rev 2 (2026-09, build 16)
+
+A re-release of Beta 2 with these fixes.
+
+- Nickname no longer stays stale after changing it on a disconnected server.
+- Auto-Connect on Launch connects at launch on iPhone too, without visiting Servers first.
+- Servers with credentials can be saved on macOS.
+- Settings sidebar in multi-column layouts follows platform design.
+- Fresh relative times say "now" instead of "in 0 seconds".
+
+## Beta 2 (2026-09, build 11)
 
 The workspace release. CuIRC is now one app that fits each screen.
 
